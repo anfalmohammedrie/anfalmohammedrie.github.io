@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anfal Mohammed | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+   <section class="hero">
+        <div class="theme-switcher">
+            <button id="theme-toggle" class="theme-btn">🌙 Dark</button>
+        </div>
+        <div class="hero-content">
+        <div class="status-badge">
+            <span class="dot"></span> Available for Collaborations
+        </div>
+
+        <h1>Anfal Mohammed</h1>
+        <p class="subtitle">Computer Science Student | Aspiring Data Analyst</p>
+        
+        <div class="hero-tags">
+            <span class="tag-anim" style="animation-delay: 1.5s">Python</span>
+            <span class="tag-anim" style="animation-delay: 1.7s">SQL</span>
+            <span class="tag-anim" style="animation-delay: 1.9s">ML</span>
+            <span class="tag-anim" style="animation-delay: 2.1s">Algorithms</span>
+        </div>
+    </div>
+</section>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-flex">
+                <div class="profile-frame">
+                    <img src="profile.jpg" alt="Anfal Mohammed" onerror="this.style.display='none'">
+                    <div class="img-placeholder">PHOTO</div>
+                </div>
+                <div class="about-text">
+                    <p>I am a CS student currently mastering Data Structures, Graph Theory, and Python-based data solutions. I enjoy building tools that make academic information more accessible.</p>
+                </div>
+                <div class="education-info">
+                    <span class="education-tag">🎓 RIET, Thiruvananthapuram, Kerala</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Current Project</h2>
+            <div class="card">
+                <div class="project-img-slot">
+                    <img src="project-preview.jpg" alt="Project Preview" onerror="this.style.display='none'">
+                    <div class="img-placeholder">PROJECT PREVIEW</div>
+                </div>
+                <h3>Syllabus Checker & Resource Hub</h3>
+                <p>Developing a platform to provide semester-specific syllabi and textbook materials for students and teachers.</p>
+                <div class="card-tags">
+                    <span class="tag">Python</span> <span class="tag">Logic</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Learning</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><strong>Languages:</strong> Python, SQL</div>
+                <div class="skill-item"><strong>Foundations:</strong> Data Structures, Tech Enthusiast</div>
+                <div class="skill-item"><strong>Focus:</strong> Data Analytics, Machine Learning, Data Science, VFX, Low/no Code</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Connect with me on <a href="https://linkedin.com/in/anfal-mohammed-ds" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themes = ['dark', 'light'];
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const defaultTheme = prefersDark ? 'dark' : 'light';
+
+        let currentThemeIndex = themes.indexOf(defaultTheme);
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && themes.includes(savedTheme)) {
+            currentThemeIndex = themes.indexOf(savedTheme);
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+
+            const icons = ['🌙', '☀️'];
+            const labels = ['Dark', 'Light'];
+            themeToggle.innerHTML = `${icons[currentThemeIndex]} ${labels[currentThemeIndex]}`;
+        }
+
+        // Apply theme on initial load
+        applyTheme(themes[currentThemeIndex]);
+
+        themeToggle.addEventListener('click', () => {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const newTheme = themes[currentThemeIndex];
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+
+</body>
+</html>
