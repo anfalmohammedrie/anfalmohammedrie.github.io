@@ -171,9 +171,31 @@ body {
     box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
 }
 
-.education-info {
-    margin-top: 20px;
+.education-badge {
+    margin-top: 25px;
     text-align: center;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.1);
+    animation: fadeInUp 1s ease-out 1s both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .education-badge {
+    background: var(--card-bg);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+}
+
+.education-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.2);
+}
+
+[data-theme="light"] .education-badge:hover {
+    box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.25);
 }
 
 .education-tag {
